@@ -1,0 +1,46 @@
+{
+  "name": "qualtrics",
+  "displayName": "Qualtrics",
+  "version": "1.0.0",
+  "description": "Connects Claude to Qualtrics. Ask in plain English to list your surveys, see how one is built, check quotas and distributions, or export responses.",
+  "author": {
+    "name": "Viral Nation Business Intelligence",
+    "url": "https://github.com/bdossantos-vn"
+  },
+  "homepage": "https://github.com/bdossantos-vn/qualtrics-mcp-server",
+  "license": "MIT",
+  "userConfig": {
+    "api_token": {
+      "type": "string",
+      "title": "Qualtrics API token",
+      "description": "Your personal Qualtrics API token. Brianna will send you yours. Paste it here exactly, with no spaces.",
+      "sensitive": true,
+      "required": true
+    },
+    "data_center": {
+      "type": "string",
+      "title": "Qualtrics datacenter",
+      "description": "Leave this as yul1 unless you have been told otherwise.",
+      "default": "yul1",
+      "required": true
+    },
+    "read_only": {
+      "type": "string",
+      "title": "Read-only mode",
+      "description": "Leave this as true. Claude can read and export your Qualtrics data but cannot create, change or delete anything. Only set this to false if Brianna has asked you to.",
+      "default": "true",
+      "required": true
+    }
+  },
+  "mcpServers": {
+    "qualtrics": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/qualtrics-mcp.mjs"],
+      "env": {
+        "QUALTRICS_API_TOKEN": "${user_config.api_token}",
+        "QUALTRICS_DATA_CENTER": "${user_config.data_center}",
+        "QUALTRICS_READ_ONLY": "${user_config.read_only}"
+      }
+    }
+  }
+}
