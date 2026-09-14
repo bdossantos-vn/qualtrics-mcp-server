@@ -1,0 +1,28 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "viral-nation",
+  "owner": {
+    "name": "Viral Nation Business Intelligence",
+    "url": "https://github.com/bdossantos-vn"
+  },
+  "description": "Viral Nation Business Intelligence tools for Claude",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "qualtrics",
+      "source": "./plugins/qualtrics",
+      "displayName": "Qualtrics",
+      "description": "Connects Claude to Qualtrics. Ask in plain English to list your surveys, see how one is built, check quotas and distributions, or export responses.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Viral Nation Business Intelligence",
+        "url": "https://github.com/bdossantos-vn"
+      },
+      "homepage": "https://github.com/bdossantos-vn/qualtrics-mcp-server",
+      "repository": "https://github.com/bdossantos-vn/qualtrics-mcp-server",
+      "license": "MIT",
+      "keywords": ["qualtrics", "survey", "research", "brand-lift"],
+      "category": "research"
+    }
+  ]
+}
